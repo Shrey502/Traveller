@@ -91,3 +91,19 @@ body{
     background-color: #fe424d !important;
     border: none !important;
 }
+
+/* show-page */
+.show-img{
+    height: 30vh;
+}
+.btns{
+    padding-top: 20px;
+    display: flex;
+}
+.show-card{
+    padding-left: 0;
+    padding-right: 0;
+}
+.card-text{
+    padding-top: 15px;
+}
