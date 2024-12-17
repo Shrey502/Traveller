@@ -5,6 +5,7 @@ const Listing = require("../Major Project/models/listing.js")
 const path = require("path");
 const methodOverride=require("method-override");
 const ejsMate = require("ejs-mate");
+const wrapAsync = require("./utils/wrapAsync.js");
 
 const port = 8080;
 
@@ -37,7 +38,7 @@ app.get("/",(req,res)=>{
 app.get("/Listings",async(req,res)=>{
     const allListings = await Listing.find({});
     res.render("listings/index.ejs",{allListings});
-});
+}); 
 
 //New Route
 app.get("/listings/new",(req,res)=>{
@@ -52,12 +53,12 @@ app.get("/listings/:id",async(req,res)=>{
 });
 
 //create Route
-app.post("/listings",async(req,res)=>{
-    const newlisting = new Listing(req.body.listing);
-    await newlisting.save();
-    res.redirect("/listings");
-    
-})
+app.post("/listings",
+    wrapAsync(async(req,res,next)=>{
+        const newlisting = new Listing(req.body.listing);
+        await newlisting.save();
+        res.redirect("/listings");  
+}));
 
 //Edit Route
 app.get("/listings/:id/edit",async(req,res)=>{
@@ -92,6 +93,10 @@ app.delete("/listings/:id", async(req,res)=>{
 //     console.log("sample was saved");
 //     res.send("Successful Testing");
 // });
+
+app.use((err,req,res,next)=>{
+    res.send("something went wrong");
+})
 
 app.listen(port,()=>{
     console.log(`Port ${port} is started`);
