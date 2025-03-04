@@ -8,13 +8,24 @@
   "keywords": [],
   "author": "Shreyas",
   "license": "ISC",
-  "description": "",
+  "description": "��#\u0000 \u0000E\u0000-\u0000c\u0000o\u0000m\u0000m\u0000e\u0000r\u0000c\u0000e\u0000\r\u0000 \u0000",
   "dependencies": {
     "ejs": "^3.1.10",
     "ejs-mate": "^4.0.0",
-    "express": "^4.21.0",
+    "express": "^4.21.2",
     "joi": "^17.13.3",
     "method-override": "^3.0.0",
     "mongoose": "^8.7.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shrey502/Traveller.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Shrey502/Traveller/issues"
+  },
+  "homepage": "https://github.com/Shrey502/Traveller#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.9"
   }
 }
