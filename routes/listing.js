@@ -27,7 +27,7 @@ router.get("/new",(req,res)=>{
     res.render("listings/new.ejs");
 });
 
-//Show Route
+//Show Routeerror: remote-curl: error reading command stream from git
 router.get("/:id",wrapAsync(async(req,res)=>{
     let {id}=req.params;
     const listing = await Listing.findById(id).populate("reviews");
